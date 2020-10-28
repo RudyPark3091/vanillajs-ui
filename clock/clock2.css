@@ -21,12 +21,16 @@ body {
   height: calc(var(--clock-size) * var(--clock-grid-r));
 }
 
-#clock2 > div {
+#clock2 > div#clock2-hour,
+#clock2 > div#clock2-minute,
+#clock2 > div#clock2-second {
   margin: 0px var(--margin-hms);
   display: flex;
 }
 
-#clock2 > div > div {
+#clock2 > div > div.clock2-hour,
+#clock2 > div > div.clock2-minute,
+#clock2 > div > div.clock2-second {
   display: grid;
   margin: 0px var(--margin-num);
   grid-template-columns: repeat(var(--clock-grid-c), 1fr);
@@ -34,6 +38,22 @@ body {
 }
 
 #clock2 > div > div > div {
+  width: var(--clock-size);
+  height: var(--clock-size);
+}
+
+.clock2-divider {
+  width: var(--clock-size);
+  height: calc(var(--clock-size) * var(--clock-grid-r));
+  display: grid;
+  grid-template-rows: repeat(var(--clock-grid-r), 1fr);
+}
+
+.clock2-divider > .pixel-on {
+  background-color: var(--clock-color);
+}
+
+.clock2-pixel {
   width: var(--clock-size);
   height: var(--clock-size);
 }

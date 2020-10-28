@@ -5,9 +5,23 @@
       <div class="clock2-hour"></div>
       <div class="clock2-hour"></div>
     </div>
+    <div class="clock2-divider">
+      <div class="clock2-pixel"></div>
+      <div class="clock2-pixel pixel-on"></div>
+      <div class="clock2-pixel"></div>
+      <div class="clock2-pixel pixel-on"></div>
+      <div class="clock2-pixel"></div>
+    </div>
     <div id="clock2-minute">
       <div class="clock2-minute"></div>
       <div class="clock2-minute"></div>
+    </div>
+    <div class="clock2-divider">
+      <div class="clock2-pixel"></div>
+      <div class="clock2-pixel pixel-on"></div>
+      <div class="clock2-pixel"></div>
+      <div class="clock2-pixel pixel-on"></div>
+      <div class="clock2-pixel"></div>
     </div>
     <div id="clock2-second">
       <div class="clock2-second"></div>
