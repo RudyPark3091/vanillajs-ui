@@ -1,0 +1,43 @@
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#clock2 {
+  --clock-size: 20px;
+  --clock-grid-r: 5;
+  --clock-grid-c: 3;
+  --margin-num: 5px;
+  --margin-hms: 10px;
+  --clock-color: #000000;
+  font-family: "Segoe UI";
+  display: flex;
+  height: calc(var(--clock-size) * var(--clock-grid-r));
+}
+
+#clock2 > div {
+  margin: 0px var(--margin-hms);
+  display: flex;
+}
+
+#clock2 > div > div {
+  display: grid;
+  margin: 0px var(--margin-num);
+  grid-template-columns: repeat(var(--clock-grid-c), 1fr);
+  grid-template-rows: repeat(var(--clock-grid-r), 1fr);
+}
+
+#clock2 > div > div > div {
+  width: var(--clock-size);
+  height: var(--clock-size);
+}
+
+.pixel-on {
+  background-color: var(--clock-color);
+}
