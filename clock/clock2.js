@@ -117,6 +117,7 @@
     forLoop(1, "second", `${second < 10 ? second : second.toString()[1]}`);
   }
 
+  renderNumber();
   const clockInterval = setInterval(renderNumber, 1000);
 
   window.onclose = (e) => {
