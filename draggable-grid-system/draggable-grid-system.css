@@ -14,3 +14,19 @@ body {
   background-color: #ffd9dc;
   display: grid;
 }
+
+#grid1 {
+  background-color: #000;
+}
+
+#grid2 {
+  background-color: #333;
+}
+
+#grid3 {
+  background-color: #666;
+}
+
+#grid4 {
+  background-color: #999;
+}
