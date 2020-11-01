@@ -1,7 +1,7 @@
 const container = document.querySelector("#container");
 
-document.body.addEventListener("mousedown", initDrag);
-let dx, dy, nx, ny;
+container.addEventListener("mousedown", initDrag);
+let dy, ny;
 
 function getDegree(element) {
   const style = element.style.transform;
@@ -17,7 +17,9 @@ function initDrag(e) {
 }
 
 function doDrag(e) {
-  container.style.transform = "rotate(-" + (ny + (e.clientY - dy) / 5).toString() + "deg)";
+  let degree = getDegree(container);
+  degree += ny + (e.clientY - dy) / 5;
+  container.style.transform = "rotate(" + (ny - (e.clientY - dy) / 5).toString() + "deg)";
 }
 
 function stopDrag(e) {
