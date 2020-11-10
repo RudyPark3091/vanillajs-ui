@@ -1,6 +1,6 @@
 const container = document.querySelector("#container");
 
-container.addEventListener("mousedown", initDrag);
+document.body.addEventListener("mousedown", initDrag);
 let dy, ny;
 
 function getDegree(element) {

@@ -23,4 +23,33 @@ a {
   position: absolute;
   right: -500px;
   background-color: #fc4889;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  font-size: 50px;
+  position: absolute;
+}
+
+#container > .link:nth-child(1) {
+  transform: translateX(-500px);
+}
+
+#container > .link:nth-child(2) {
+  transform: translateX(-500px);
+}
+
+#container > .link:nth-child(3) {
+  transform: translateX(-250px) translateY(-500px) rotate(72deg);
+}
+
+#container > .link:nth-child(4) {
+  transform: translateX(500px) translateY(-500px) rotate(144deg);
+}
+
+#container > .link:nth-child(5) {
+  transform: translateX(500px) translateY(500px) rotate(216deg);
 }
