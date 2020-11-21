@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slider-container {
+  --slider-width: 800px;
+  --slider-height: 600px;
+  --slider-items: 6;
+  width: var(--slider-width);
+  height: var(--slider-height);
+  border: 1px solid blue;
+  display: flex;
+}
+
+.slider-item {
+  width: var(--slider-width);
+  height: 100%;
+  border: 1px solid red;
+}
+
+#slider-container .slider-item:nth-child(odd) {
+  background-color: #000;
+}
