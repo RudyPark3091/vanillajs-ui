@@ -5,65 +5,38 @@ class Clock2 extends HTMLElement {
 		const shadow = this.attachShadow({ mode: "open" });
 
 		const wrapper = document.createElement("div");
+		wrapper.innerHTML = `
+			<div id="clock2-hour">
+				<div class="clock2-hour"></div>
+				<div class="clock2-hour"></div>
+			</div>
+			<div class="clock2-divider">
+				<div class="clock2-pixel"></div>
+				<div class="clock2-pixel pixel-on"></div>
+				<div class="clock2-pixel"></div>
+				<div class="clock2-pixel pixel-on"></div>
+				<div class="clock2-pixel"></div>
+			</div>
+			<div id="clock2-minute">
+				<div class="clock2-minute"></div>
+				<div class="clock2-minute"></div>
+			</div>
+			<div class="clock2-divider">
+				<div class="clock2-pixel"></div>
+				<div class="clock2-pixel pixel-on"></div>
+				<div class="clock2-pixel"></div>
+				<div class="clock2-pixel pixel-on"></div>
+				<div class="clock2-pixel"></div>
+			</div>
+			<div id="clock2-second">
+				<div class="clock2-second"></div>
+				<div class="clock2-second"></div>
+			</div>
+		`;
 		wrapper.id = "clock2";
-
-		const clockHourWrapper = document.createElement("div");
-		const clockMinuteWrapper = document.createElement("div");
-		const clockSecondWrapper = document.createElement("div");
-		clockHourWrapper.id = "clock2-hour";
-		clockMinuteWrapper.id = "clock2-minute";
-		clockSecondWrapper.id = "clock2-second";
-
-		const clockHourNumber = document.createElement("div");
-		const clockHourNumber2 = document.createElement("div");
-		clockHourNumber.classList.add("clock2-hour");
-		clockHourNumber2.classList.add("clock2-hour");
-		clockHourWrapper.appendChild(clockHourNumber);
-		clockHourWrapper.appendChild(clockHourNumber2);
-
-		const clockMinuteNumber = document.createElement("div");
-		const clockMinuteNumber2 = document.createElement("div");
-		clockMinuteNumber.classList.add("clock2-hour");
-		clockMinuteNumber2.classList.add("clock2-hour");
-		clockMinuteWrapper.appendChild(clockMinuteNumber);
-		clockMinuteWrapper.appendChild(clockMinuteNumber2);
-
-		const clockSecondNumber = document.createElement("div");
-		const clockSecondNumber2 = document.createElement("div");
-		clockSecondNumber.classList.add("clock2-hour");
-		clockSecondNumber2.classList.add("clock2-hour");
-		clockSecondWrapper.appendChild(clockSecondNumber);
-		clockSecondWrapper.appendChild(clockSecondNumber2);
-
-		const clockHour = new Array(clockHourNumber, clockHourNumber2);
-		const clockMinute = new Array(clockMinuteNumber, clockMinuteNumber2);
-		const clockSecond = new Array(clockSecondNumber, clockSecondNumber2);
-
-		const dividerWrapper = document.createElement("div");
-		dividerWrapper.classList.add("clock2-divider");
-		const dividerPixelOn = document.createElement("div");
-		const dividerPixelOff = document.createElement("div");
-		dividerPixelOn.classList.add("pixel-on");
-		dividerPixelOn.classList.add("clock2-pixel");
-		dividerPixelOff.classList.add("clock2-pixel");
-		dividerWrapper.appendChild(dividerPixelOff.cloneNode());
-		dividerWrapper.appendChild(dividerPixelOn.cloneNode());
-		dividerWrapper.appendChild(dividerPixelOff.cloneNode());
-		dividerWrapper.appendChild(dividerPixelOn.cloneNode());
-		dividerWrapper.appendChild(dividerPixelOff.cloneNode());
-
-		const dividerWrapper2 = document.createElement("div");
-		dividerWrapper2.appendChild(dividerPixelOff.cloneNode());
-		dividerWrapper2.appendChild(dividerPixelOn.cloneNode());
-		dividerWrapper2.appendChild(dividerPixelOff.cloneNode());
-		dividerWrapper2.appendChild(dividerPixelOn.cloneNode());
-		dividerWrapper2.appendChild(dividerPixelOff.cloneNode());
-
-		wrapper.appendChild(clockHourWrapper);
-		wrapper.appendChild(dividerWrapper);
-		wrapper.appendChild(clockMinuteWrapper);
-		wrapper.appendChild(dividerWrapper2);
-		wrapper.appendChild(clockSecondWrapper);
+		const clockHour = wrapper.querySelectorAll(".clock2-hour");
+		const clockMinute = wrapper.querySelectorAll(".clock2-minute");
+		const clockSecond = wrapper.querySelectorAll(".clock2-second");
 
 		const first = [1, 0, 0];
 		const mid = [0, 1, 0];
