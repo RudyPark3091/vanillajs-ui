@@ -5,9 +5,9 @@ class Clock extends HTMLElement {
 		const shadow = this.attachShadow({ mode: 'open' });
 
 		const wrapper = document.createElement("div");
-		wrapper.classList.add("clock");
+		wrapper.id = "clock";
 
-		const clockInterval = setInterval(() => {
+		function renderClock() {
 			const date = new Date();
 
 			const hour = date.getHours();
@@ -21,7 +21,10 @@ class Clock extends HTMLElement {
 				}:${
 					second < 10 ? `0${second}` : second
 				}`;
-		}, 1000);
+		}
+		renderClock();
+
+		const clockInterval = setInterval(() => { renderClock() }, 1000);
 
 		const style = document.createElement("style");
 		style.textContent = `#clock {
