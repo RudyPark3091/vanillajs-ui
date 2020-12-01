@@ -26,9 +26,16 @@ class Clock extends HTMLElement {
 
 		const clockInterval = setInterval(() => { renderClock() }, 1000);
 
+		let size;
+		if (this.hasAttribute("font-size")) {
+			size = this.getAttribute("font-size");
+		} else {
+			size = "10px";
+		}
+
 		const style = document.createElement("style");
 		style.textContent = `#clock {
-			font-size: 5rem;
+			font-size: ${size};
 			font-weight: 700;
 			font-family: "Segoe UI";
 		}`;
