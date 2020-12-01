@@ -4,6 +4,7 @@ class Clock2 extends HTMLElement {
 
 		const shadow = this.attachShadow({ mode: "open" });
 
+		// declaration of wrapper
 		const wrapper = document.createElement("div");
 		wrapper.innerHTML = `
 			<div id="clock2-hour">
@@ -37,6 +38,12 @@ class Clock2 extends HTMLElement {
 		const clockHour = wrapper.querySelectorAll(".clock2-hour");
 		const clockMinute = wrapper.querySelectorAll(".clock2-minute");
 		const clockSecond = wrapper.querySelectorAll(".clock2-second");
+
+		let hms = {
+			"hour": -1,
+			"minute": -1,
+			"second": -1
+		};
 
 		/*
 		 * clock pixel shape: 5 x 3
@@ -120,14 +127,23 @@ class Clock2 extends HTMLElement {
 			const minute = date.getMinutes();
 			const second = date.getSeconds();
 
-			forLoop(0, "hour", `${hour < 10 ? 0 : hour.toString()[0]}`);
-			forLoop(1, "hour", `${hour < 10 ? hour : hour.toString()[1]}`);
+			if (hms.hour !== hour) {
+				hms.hour = hour;
+				forLoop(0, "hour", `${hour < 10 ? 0 : hour.toString()[0]}`);
+				forLoop(1, "hour", `${hour < 10 ? hour : hour.toString()[1]}`);
+			}
+			
+			if (hms.minute !== minute) {
+				hms.minute = minute;
+				forLoop(0, "minute", `${minute < 10 ? 0 : minute.toString()[0]}`);
+				forLoop(1, "minute", `${minute < 10 ? minute : minute.toString()[1]}`);
+			}
 
-			forLoop(0, "minute", `${minute < 10 ? 0 : minute.toString()[0]}`);
-			forLoop(1, "minute", `${minute < 10 ? minute : minute.toString()[1]}`);
-
-			forLoop(0, "second", `${second < 10 ? 0 : second.toString()[0]}`);
-			forLoop(1, "second", `${second < 10 ? second : second.toString()[1]}`);
+			if (hms.second !== second) {
+				hms.second = second;
+				forLoop(0, "second", `${second < 10 ? 0 : second.toString()[0]}`);
+				forLoop(1, "second", `${second < 10 ? second : second.toString()[1]}`);
+			}
 		}
 
 		renderNumber();
