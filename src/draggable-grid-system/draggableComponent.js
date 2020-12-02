@@ -2,7 +2,6 @@ class Draggable extends HTMLElement {
 	constructor() {
 		super();
 
-		const shadow = this.attachShadow({ mode: 'open' });
 		const DIVIDERWIDTH = 10;
 
 		// wrapper element
@@ -20,6 +19,12 @@ class Draggable extends HTMLElement {
 		const item1 = wrapper.querySelector("#draggable-item1");
 		const item2 = wrapper.querySelector("#draggable-item2");
 		const divider = wrapper.querySelector("#draggable-divider");
+
+		const extItem1 = this.childNodes[1];
+		const extItem2 = this.childNodes[3];
+
+		item1.appendChild(extItem1);
+		item2.appendChild(extItem2);
 
 		// extracting attributes from tag
 		let draggablePadding;
@@ -117,12 +122,9 @@ class Draggable extends HTMLElement {
 		}
 		`;
 
-		item1.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum faucibus libero non magna accumsan, nec interdum libero rhoncus. Donec et vestibulum neque. Quisque urna ex, volutpat eget elementum at, iaculis sed metus. Duis gravida velit et magna ultricies, in condimentum dolor sodales. Integer porta condimentum suscipit. Suspendisse vitae sodales velit, in elementum orci. Proin molestie nunc ut purus dictum tincidunt non eget purus. Pellentesque quis lacus sit amet elit tincidunt bibendum ut tempus magna.".repeat(30);
-		item2.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum faucibus libero non magna accumsan, nec interdum libero rhoncus. Donec et vestibulum neque. Quisque urna ex, volutpat eget elementum at, iaculis sed metus. Duis gravida velit et magna ultricies, in condimentum dolor sodales. Integer porta condimentum suscipit. Suspendisse vitae sodales velit, in elementum orci. Proin molestie nunc ut purus dictum tincidunt non eget purus. Pellentesque quis lacus sit amet elit tincidunt bibendum ut tempus magna.".repeat(30);
-
-		shadow.appendChild(wrapper);
-		shadow.appendChild(style);
-		shadow.append(style, wrapper);
+		this.appendChild(wrapper);
+		this.appendChild(style);
+		this.append(style, wrapper);
 	}
 }
 
