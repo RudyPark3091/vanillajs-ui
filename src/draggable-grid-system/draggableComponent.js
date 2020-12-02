@@ -19,12 +19,12 @@ class Draggable extends HTMLElement {
 
 		let startPosX, startWidth;
 		divider.addEventListener("mousedown", handleMouseDown);
+		document.documentElement.addEventListener("mouseup", handleDragStop);
 
 		function handleMouseDown(e) {
 			startPosX = e.clientX;
 			startWidth = parseInt(document.defaultView.getComputedStyle(divider).width);
 			document.documentElement.addEventListener("mousemove", handleDrag);
-			document.documentElement.addEventListener("mouseup", handleDragStop);
 		}
 
 		function handleDrag(e) {
@@ -33,7 +33,6 @@ class Draggable extends HTMLElement {
 
 		function handleDragStop(e) {
 			document.documentElement.removeEventListener("mousemove", handleDrag);
-			document.documentElement.removeEventListener("mouseup", handleDragStop);
 		}
 
 		const style = document.createElement("style");
